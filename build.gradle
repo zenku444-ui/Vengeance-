@@ -16,7 +16,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("../reconstructed/src/main/resources/vengeance-client.accesswidener")
+    accessWidenerPath = file("src/main/resources/vengeance-client.accesswidener")
 }
 
 dependencies {
@@ -32,16 +32,16 @@ dependencies {
     // These libraries are embedded by fabric.mod.json and are also needed
     // on the compile classpath for the reconstructed sources.
     compileOnly files(
-        "../reconstructed/src/main/resources/META-INF/jars/lombok-1.18.30.jar",
-        "../reconstructed/src/main/resources/META-INF/jars/norbit-1.2.0.jar",
-        "../reconstructed/src/main/resources/META-INF/jars/orbit-0.2.4.jar"
+        "src/main/resources/META-INF/jars/lombok-1.18.30.jar",
+        "src/main/resources/META-INF/jars/norbit-1.2.0.jar",
+        "src/main/resources/META-INF/jars/orbit-0.2.4.jar"
     )
 }
 
 sourceSets {
     main {
-        java.srcDirs = ["../reconstructed/src/main/java"]
-        resources.srcDirs = ["../reconstructed/src/main/resources"]
+        java.srcDirs = ["src/main/java"]
+        resources.srcDirs = ["src/main/resources"]
     }
 }
 

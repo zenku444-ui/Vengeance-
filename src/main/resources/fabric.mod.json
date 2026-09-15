@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "vengeance-client",
+  "version": "1.0.0",
+  "name": "Vengeance Client",
+  "description": "Vengeance Client for Fabric 1.21.11",
+  "contact": {
+    "sources": "https://github.com/Noryea/motionblur-fabric",
+    "issues": "https://github.com/Noryea/motionblur-fabric/issues"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/vengeance-client/icon.png",
+  "accessWidener": "vengeance-client.accesswidener",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.vengeance.vengeanceclient.VengeanceClient"
+    ]
+  },
+  "mixins": [
+    "vengeance-client.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.3",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api-base": ">=0.4.35",
+    "fabric-resource-loader-v0": ">=0.11.14",
+    "fabric-networking-api-v1": ">=3.1.1"
+  },
+  "jars": [
+    {
+      "file": "META-INF/jars/lombok-1.18.30.jar"
+    },
+    {
+      "file": "META-INF/jars/norbit-1.2.0.jar"
+    },
+    {
+      "file": "META-INF/jars/orbit-0.2.4.jar"
+    }
+  ]
+}
