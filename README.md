@@ -1,43 +1,58 @@
 Vengeance Client — Reconstruction
 
-«Status: Compilation complete — full build verification in progress»
+«Status: Build Successful»
 
-This repository contains the ongoing source reconstruction of Vengeance Client, targeting Minecraft Java Edition 1.21.11 with Fabric and Java 21.
+This repository contains the reconstructed source of Vengeance Client, targeting Minecraft Java Edition 1.21.11 with Fabric and Java 21.
 
-The goal is to reconstruct the original client as faithfully as possible while preserving its original classes, resources, functionality, and behavior.
-
----
+The reconstruction has been organized and repaired to the point where the project compiles and produces a JAR successfully.
 
 Current Status
 
-The current reconstruction checkpoint has:
-
-- 207 Java source files organized under "src/main/java"
+- 207 Java source files under "src/main/java"
 - 52 resources under "src/main/resources"
-- Original project structure and Gradle configuration preserved
-- "TODO.md" containing the reconstruction handoff and verification notes
-- Fabric/Minecraft 1.21.11 project configuration
-- Java 21 target
+- "compileJava" succeeds with 0 errors
+- "clean build" succeeds
+- A functional JAR is produced by the build
+- "README.md" and "TODO.md" document the current project state
 
-Build Status
+Build Verification
 
-The project now compiles successfully with zero Java compilation errors.
-
-There are exactly:
-
-0 remaining Java compilation errors
-
-No final build should be considered successful until:
+The following commands have been successfully verified:
 
 ./gradlew compileJava --no-daemon
 
-completes successfully and:
+Result:
+
+BUILD SUCCESSFUL
+0 compilation errors
+
+And:
 
 ./gradlew clean build --no-daemon
 
-produces an actual JAR.
+Result:
 
----
+BUILD SUCCESSFUL
+
+Build Artifact
+
+The successful build produces:
+
+vengeance-client-1.0.0.jar
+
+Current verified artifact:
+
+vengeance-client-1.0.0.jar
+Size: 3,668,323 bytes
+
+Target Environment
+
+Component| Version
+Minecraft| 1.21.11
+Mod Loader| Fabric
+Java| 21
+Build System| Gradle
+Project Tooling| Fabric Loom
 
 Project Structure
 
@@ -58,113 +73,81 @@ Project Structure
 ├── TODO.md
 └── README.md
 
-Generated Gradle/build directories such as ".gradle/" and "build/" are not part of the source checkpoint.
-
----
-
-Target Environment
-
-Component| Target
-Minecraft| 1.21.11
-Mod Loader| Fabric
-Java| 21
-Build System| Gradle
-Project Tooling| Fabric Loom
-
-Do not change these targets unless there is a confirmed project requirement to do so.
-
----
+Generated directories such as ".gradle/" and "build/" contain temporary/cache/build output and are not part of the source checkpoint.
 
 Reconstruction Principles
 
-Future work must prioritize source fidelity.
+The project should continue to prioritize source fidelity and preservation of the original Vengeance functionality.
 
 Do
 
-- Preserve the original Vengeance functionality.
-- Inspect related classes before modifying reconstructed code.
-- Identify and repair decompiler/reconstruction artifacts.
-- Make the smallest safe source-level changes.
-- Keep existing classes, methods, fields, and resources whenever possible.
-- Test compilation after logical groups of fixes.
-- Document uncertain reconstruction decisions in "TODO.md".
+- Preserve existing Vengeance functionality.
+- Inspect related classes before making changes.
+- Make minimal, safe source-level fixes.
+- Preserve existing classes, methods, fields, and resources whenever possible.
+- Keep Minecraft 1.21.11, Fabric, and Java 21 aligned with the project.
+- Verify changes by compiling and building the project.
+- Keep "TODO.md" accurate.
 
 Do Not
 
 - Restart the reconstruction from scratch.
-- Reorganize the existing "src" tree without a strong reason.
-- Delete classes or features just to make compilation succeed.
-- Replace functionality with empty/stub methods.
-- Fake implementations simply to satisfy the compiler.
-- Remove errors by hiding or suppressing them.
-- Claim a successful build without actually producing a JAR.
+- Remove features simply to make the project compile.
+- Stub or fake functionality.
+- Randomly change Minecraft/Fabric versions.
+- Claim a successful build without verifying the actual build output.
 
----
+Previous Reconstruction Work
 
-Current Checkpoint
+The source was reconstructed and organized from the original Vengeance Client project/JAR.
 
-The current saved Git checkpoint is:
+During the repair process, compiler and reconstruction issues were addressed, including:
 
-c8625492a26aa2be203556886d927f15debc3120
+- decompiler artifacts
+- Yarn/mapping issues
+- typed local variables
+- malformed enums and records
+- rendering API issues
+- registry access
+- utility JSON/timer code
+- reconstructed nested types and related source issues
 
-Commit message:
+The final project was then verified with both "compileJava" and "clean build".
 
-Vengeance reconstruction checkpoint - 100 compile errors remaining
-
-This checkpoint should be treated as the safe restore point for the current reconstruction.
-
----
-
-Continuing Development
-
-Before making changes, read:
-
-README.md
 TODO.md
 
-Then inspect the current compiler errors.
+"TODO.md" remains in the repository as a historical and development handoff document.
 
-Start with:
+It should be kept accurate if additional issues, cleanup, verification, or improvements are discovered.
+
+Development
+
+To compile the project:
 
 ./gradlew compileJava --no-daemon
 
-Fix the errors systematically.
-
-For each logical group of errors:
-
-1. Understand the cause.
-2. Inspect surrounding and related source.
-3. Determine whether it is a reconstruction/decompiler artifact, type/mapping issue, import collision, nested-class issue, or API mismatch.
-4. Make the smallest safe fix.
-5. Re-run compilation.
-6. Update "TODO.md" when appropriate.
-
-After "compileJava" succeeds:
+To perform a clean build:
 
 ./gradlew clean build --no-daemon
 
-A successful reconstruction requires the build command to exit with code "0" and an actual JAR to exist in the build output.
+A successful build should produce the Vengeance Client JAR in the configured build output location.
 
----
+Current Checkpoint
 
-"TODO.md"
+The successful reconstruction state was verified at Git HEAD:
 
-"TODO.md" is the primary handoff document for unresolved reconstruction issues.
+92a89d746e7e782702b9c19abaee514bbf3e503d
 
-Always read it before continuing work.
+This represents the state where:
 
-When fixing an issue, keep the document accurate so another developer or AI can continue the project without repeating previous work.
-
----
+- compilation succeeds
+- the clean build succeeds
+- the JAR is produced successfully
 
 Important
 
-This repository is a work-in-progress reconstruction.
+This repository represents a reconstructed version of Vengeance Client.
 
-The current source tree is intentionally preserved at a checkpoint where the reconstruction has been organized but compilation is not yet complete.
+Although the project now compiles successfully and produces a JAR, runtime behavior should still be tested in the intended Minecraft/Fabric environment before considering every feature fully verified.
 
-Do not interpret the existence of the Gradle project as proof that the client is fully reconstructed or build-ready.
-
-The next objective is straightforward:
-
-«Compilation and clean build complete while preserving the original Vengeance functionality.»
+The next stage is therefore runtime testing, feature verification, and any necessary bug fixes, rather than reconstruction from scratch.
