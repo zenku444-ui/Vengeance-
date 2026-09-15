@@ -185,17 +185,18 @@ extends com.vengeance.vengeanceclient.r.zb {
     }
 
     private void a(DrawContext class_3322, PlayerEntity class_16572, float f, float f2) {
-        ItemStack[] class_1799Array;
+        ItemStack class_17992 = class_16572.getMainHandStack();
         float f3 = f;
         float f4 = f2 + 13.0f;
-        if (this.ab.b() && !(class_1799Array = class_16572.getMainHandStack()).isEmpty()) {
-            this.a(class_3322, (ItemStack)class_1799Array, f3, f4);
+        if (this.ab.b() && !class_17992.isEmpty()) {
+            this.a(class_3322, class_17992, f3, f4);
             f3 += 14.0f;
         }
         if (this.aa.b()) {
-            for (ItemStack class_17992 : class_1799Array = new ItemStack[]{class_16572.getEquippedStack(EquipmentSlot.HEAD), class_16572.getEquippedStack(EquipmentSlot.CHEST), class_16572.getEquippedStack(EquipmentSlot.LEGS), class_16572.getEquippedStack(EquipmentSlot.FEET)}) {
-                if (class_17992.isEmpty()) continue;
-                this.a(class_3322, class_17992, f3, f4);
+            ItemStack[] armorStacks = new ItemStack[]{class_16572.getEquippedStack(EquipmentSlot.HEAD), class_16572.getEquippedStack(EquipmentSlot.CHEST), class_16572.getEquippedStack(EquipmentSlot.LEGS), class_16572.getEquippedStack(EquipmentSlot.FEET)};
+            for (ItemStack armorStack : armorStacks) {
+                if (armorStack.isEmpty()) continue;
+                this.a(class_3322, armorStack, f3, f4);
                 f3 += 14.0f;
             }
         }

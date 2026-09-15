@@ -32,7 +32,7 @@ extends zb {
             return;
         }
         ClickSlotC2SPacket class_28132 = (ClickSlotC2SPacket)class_25962;
-        com.vengeance.vengeanceclient.utils.t.za.e("ClickSlotPacket\n  syncId: %s\n  revision: %s\n  slot: %s\n  button: %s\n  actionType: %s\n  modifiedItems: %s\n  cursor: %s\n".formatted(class_28132.comp_3842(), class_28132.comp_3843(), class_28132.comp_3844(), class_28132.comp_3845(), class_28132.comp_3846(), class_28132.comp_3847(), class_28132.comp_3848()));
+        com.vengeance.vengeanceclient.utils.t.za.e("ClickSlotPacket\n  syncId: %s\n  revision: %s\n  slot: %s\n  button: %s\n  actionType: %s\n  modifiedItems: %s\n  cursor: %s\n".formatted(class_28132.syncId(), class_28132.revision(), class_28132.slot(), class_28132.button(), class_28132.actionType(), class_28132.modifiedStacks(), class_28132.cursor()));
     }
 }
 

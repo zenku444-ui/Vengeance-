@@ -28,7 +28,7 @@ implements zb {
             return false;
         }
         Vec3d VanillaEntityLootTableGenerator = zf.w.player.getCameraPosVec(1.0f);
-        BlockHitResult class_39652 = zf.w.world.raycast(new RaycastContext(VanillaEntityLootTableGenerator, WallPlayerSkullBlock = VanillaEntityLootTableGenerator.add((VanillaChestLootTableGenerator = zf.w.player.getRotationVec(1.0f)).multiply(d)), RaycastContext.class_3960.OUTLINE, RaycastContext.class_242.NONE, (Entity)zf.w.player));
+        BlockHitResult class_39652 = zf.w.world.raycast(new RaycastContext(VanillaEntityLootTableGenerator, WallPlayerSkullBlock = VanillaEntityLootTableGenerator.add((VanillaChestLootTableGenerator = zf.w.player.getRotationVec(1.0f)).multiply(d)), RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, zf.w.player));
         return class_39652 != null && class_39652.getBlockPos().equals((Object)class_23382);
     }
 

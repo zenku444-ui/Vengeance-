@@ -218,7 +218,7 @@ extends com.vengeance.vengeanceclient.r.zb {
         int n3 = bl ? zo.a.world.getBottomY() : class_23382.getY() - n2;
         int n4 = bl ? zo.a.world.getBottomY() + zo.a.world.getHeight() - 1 : class_23382.getY() + n2;
         Box HorizontalFacingBlock = new Box((double)(class_23382.getX() - n), (double)n3, (double)(class_23382.getZ() - n), (double)(class_23382.getX() + n), (double)n4, (double)(class_23382.getZ() + n));
-        List list2 = zo.a.world.getEntitiesByClass(ArmorStandEntity.class, HorizontalFacingBlock, class_15312 -> class_15312 != null && class_15312.isAlive());
+        List<ArmorStandEntity> list2 = zo.a.world.getEntitiesByClass(ArmorStandEntity.class, HorizontalFacingBlock, class_15312 -> class_15312 != null && class_15312.isAlive());
         if (!list2.isEmpty()) {
             za za2 = new za(zb.i);
             for (ArmorStandEntity class_15313 : list2) {
@@ -267,7 +267,7 @@ extends com.vengeance.vengeanceclient.r.zb {
         this.ac = list.size();
         this.y.a();
         if (this.o.b()) {
-            a.getSoundManager().play((SoundInstance)PositionedSoundInstance.ui((SoundEvent)((SoundEvent)SoundEvents.BLOCK_NOTE_BLOCK_PLING.comp_349()), (float)2.0f));
+            a.getSoundManager().play((SoundInstance)PositionedSoundInstance.ui((SoundEvent)SoundEvents.BLOCK_NOTE_BLOCK_PLING.value(), (float)2.0f));
         }
         com.vengeance.vengeanceclient.utils.t.za.e("[TrapSave] Trap detected: " + this.ab + " (" + this.ac + " traps)");
     }
@@ -366,29 +366,10 @@ extends com.vengeance.vengeanceclient.r.zb {
         super.c();
     }
 
-    private static final class zb
-    extends Enum<zb> {
-        public static final /* enum */ zb a = new zb("");
-        public static final /* enum */ zb b = new zb("TNT");
-        public static final /* enum */ zb c = new zb("Lever");
-        public static final /* enum */ zb d = new zb("Piston");
-        public static final /* enum */ zb e = new zb("Redstone");
-        public static final /* enum */ zb f = new zb("Pressure Plate");
-        public static final /* enum */ zb g = new zb("Tripwire");
-        public static final /* enum */ zb h = new zb("Dispenser");
-        public static final /* enum */ zb i = new zb("Armor Stand");
+    private enum zb {
+        a(""), b("TNT"), c("Lever"), d("Piston"), e("Redstone"), f("Pressure Plate"), g("Tripwire"), h("Dispenser"), i("Armor Stand");
         private final String j;
-        private static final /* synthetic */ zb[] k;
-
-        public static zb[] values() {
-            return (zb[])k.clone();
-        }
-
-        public static zb valueOf(String string) {
-            return Enum.valueOf(zb.class, string);
-        }
-
-        private zb(String string2) {
+        zb(String string2) {
             this.j = string2;
         }
 
@@ -396,13 +377,6 @@ extends com.vengeance.vengeanceclient.r.zb {
             return this.j;
         }
 
-        private static /* synthetic */ zb[] b() {
-            return new zb[]{a, b, c, d, e, f, g, h, i};
-        }
-
-        static {
-            k = zb.b();
-        }
     }
 
     private static class za {

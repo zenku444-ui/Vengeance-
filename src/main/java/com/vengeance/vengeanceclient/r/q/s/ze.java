@@ -20,9 +20,9 @@ extends zb {
             return;
         }
         if (((Boolean)ze.a.options.getSprintToggled().getValue()).booleanValue()) {
-            ze.a.options.getSprintToggled().setValue((Object)false);
+            ze.a.options.getSprintToggled().setValue(false);
         }
-        ze.a.options.sprintKey.setPressed(true);
+            ze.a.options.sprintKey.setPressed(true);
     }
 }
 

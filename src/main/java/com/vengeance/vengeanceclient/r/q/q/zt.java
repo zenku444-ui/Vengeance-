@@ -67,9 +67,9 @@ extends zb {
         }
         this.a((Entity)class_13092);
         if (this.g >= this.f.a()) {
-            class_12972 = Vec3d.fromPolar((float)zt.a.player.getPitch(), (float)zt.a.player.getYaw());
+            Vec3d velocity = Vec3d.fromPolar((float)zt.a.player.getPitch(), (float)zt.a.player.getYaw());
             zt.a.player.setSprinting(true);
-            zt.a.player.setVelocity(class_12972.multiply(this.d.f()));
+            zt.a.player.setVelocity(velocity.multiply(this.d.f()));
         }
     }
 
@@ -135,7 +135,7 @@ extends zb {
         if (class_17992 == null || class_17992.isEmpty()) {
             return false;
         }
-        Identifier class_29602 = Registries.ITEM.getId((Object)class_17992.getItem());
+        Identifier class_29602 = Registries.ITEM.getId(class_17992.getItem());
         if (class_29602 == null) {
             return false;
         }

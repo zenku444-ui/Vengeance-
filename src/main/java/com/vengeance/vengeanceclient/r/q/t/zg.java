@@ -56,7 +56,7 @@ extends zb {
         if (ItemStackParticleEffect == null) {
             return;
         }
-        if (ItemStackParticleEffect.getType() == HitResult.class_240.BLOCK) {
+        if (ItemStackParticleEffect.getType() == HitResult.Type.BLOCK) {
             this.a((BlockHitResult)ItemStackParticleEffect);
         }
     }

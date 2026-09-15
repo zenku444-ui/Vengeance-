@@ -71,7 +71,7 @@ extends zb {
         }
         this.f = true;
         this.e.a();
-        a.getSoundManager().play((SoundInstance)PositionedSoundInstance.ui((SoundEvent)((SoundEvent)SoundEvents.BLOCK_NOTE_BLOCK_PLING.comp_349()), (float)this.d.b()));
+        a.getSoundManager().play((SoundInstance)PositionedSoundInstance.ui((SoundEvent)SoundEvents.BLOCK_NOTE_BLOCK_PLING.value(), (float)this.d.b()));
     }
 
     private void o() {

@@ -40,8 +40,8 @@ extends zb {
         }
         switch (this.b.a()) {
             case "Vanilla": {
-                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.class_2829(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y + 0.2, zh.a.player.getEntityPos().z, false, false));
-                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.class_2829(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y + 0.1, zh.a.player.getEntityPos().z, false, false));
+                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.PositionAndOnGround(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y + 0.2, zh.a.player.getEntityPos().z, false, false));
+                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.PositionAndOnGround(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y + 0.1, zh.a.player.getEntityPos().z, false, false));
                 break;
             }
             case "Watchdog Old": {
@@ -50,8 +50,8 @@ extends zb {
                 break;
             }
             case "Mospixel": {
-                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.class_2829(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y + 2.71875E-7, zh.a.player.getEntityPos().z, false, false));
-                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.class_2829(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y, zh.a.player.getEntityPos().z, false, false));
+                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.PositionAndOnGround(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y + 2.71875E-7, zh.a.player.getEntityPos().z, false, false));
+                zh.a.player.networkHandler.sendPacket((Packet)new PlayerMoveC2SPacket.PositionAndOnGround(zh.a.player.getEntityPos().x, zh.a.player.getEntityPos().y, zh.a.player.getEntityPos().z, false, false));
             }
         }
     }

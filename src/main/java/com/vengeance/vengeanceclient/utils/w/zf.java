@@ -28,7 +28,7 @@ public class zf {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
         zf.a();
         zd.a();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.QUADS, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
         class_2872.vertex((Matrix4fc)matrix4f, f, f4, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f4, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f2, 0.0f).color(color.getRGB());
@@ -41,13 +41,13 @@ public class zf {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
         zf.a();
         zd.a();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.QUADS, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
         class_2872.vertex((Matrix4fc)matrix4f, f, f4, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f4, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f2, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f, f2, 0.0f).color(color.getRGB());
         za.a(class_2872);
-        class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.DEBUG_LINE_STRIP, VertexFormats.POSITION_COLOR);
+        class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.DEBUG_LINE_STRIP, VertexFormats.POSITION_COLOR);
         class_2872.vertex((Matrix4fc)matrix4f, f, f4, 0.0f).color(color2.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f4, 0.0f).color(color2.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f2, 0.0f).color(color2.getRGB());
@@ -61,7 +61,7 @@ public class zf {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
         zf.a();
         zd.a();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.QUADS, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
         class_2872.vertex((Matrix4fc)matrix4f, f, f2, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f, f4, 0.0f).color(color.getRGB());
         class_2872.vertex((Matrix4fc)matrix4f, f3, f4, 0.0f).color(color2.getRGB());

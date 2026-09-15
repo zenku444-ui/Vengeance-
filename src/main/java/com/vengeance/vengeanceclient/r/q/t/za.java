@@ -79,8 +79,8 @@ extends zb {
 
     private za$recipe q() {
         Object object;
-        if (this.k.b() && (object = this.t()) != null && this.b((za)object)) {
-            return object;
+        if (this.k.b() && (object = this.t()) != null && this.b((za$recipe)object)) {
+            return (za$recipe)object;
         }
         for (za$recipe za2 : b) {
             if (za2.a == Items.GOLDEN_APPLE || !this.a(za2) || !this.b(za2) || !this.a(za2.a) || this.k.b() && this.e(za2)) continue;

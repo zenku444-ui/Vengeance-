@@ -22,10 +22,10 @@ public final class za {
         } else {
             MinecraftClient class_3102 = MinecraftClient.getInstance();
             KeyBinding class_3042 = class_3102.options.attackKey;
-            InputUtil.class_306 FunctionCommand = class_3042.getDefaultKey();
-            KeyBinding.setKeyPressed((InputUtil.class_306)FunctionCommand, (boolean)true);
-            KeyBinding.onKeyPressed((InputUtil.class_306)FunctionCommand);
-            class_3102.execute(() -> KeyBinding.setKeyPressed((InputUtil.class_306)FunctionCommand, (boolean)false));
+            InputUtil.Key functionKey = class_3042.getDefaultKey();
+            KeyBinding.setKeyPressed(functionKey, true);
+            KeyBinding.onKeyPressed(functionKey);
+            class_3102.execute(() -> KeyBinding.setKeyPressed(functionKey, false));
         }
     }
 

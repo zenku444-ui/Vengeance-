@@ -18,8 +18,6 @@ import com.vengeance.vengeanceclient.utils.w.p.ze;
 import com.vengeance.vengeanceclient.utils.w.p.zf;
 import com.vengeance.vengeanceclient.utils.w.q.q.za;
 import com.vengeance.vengeanceclient.utils.w.zd;
-import java.lang.invoke.MethodHandle;
-import java.lang.runtime.ObjectMethods;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
@@ -83,19 +81,5 @@ public record zc(zf a, ze b, com.vengeance.vengeanceclient.utils.w.p.zd c, float
         class_2872.vertex((Matrix4fc)matrix4f, f, f2, f3).color(f5, f6, f7, f4);
     }
 
-    @Override
-    public final String toString() {
-        return ObjectMethods.bootstrap("toString", new MethodHandle[]{zc.class, "size;radius;color;smoothness;blurRadius", "a", "b", "c", "d", "e"}, this);
-    }
-
-    @Override
-    public final int hashCode() {
-        return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zc.class, "size;radius;color;smoothness;blurRadius", "a", "b", "c", "d", "e"}, this);
-    }
-
-    @Override
-    public final boolean equals(Object object) {
-        return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zc.class, "size;radius;color;smoothness;blurRadius", "a", "b", "c", "d", "e"}, this, object);
-    }
 }
 

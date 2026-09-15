@@ -18,6 +18,7 @@ import com.vengeance.vengeanceclient.r.zb;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.util.Formatting;
@@ -210,21 +211,19 @@ extends zb {
     public void c() {
         if (!this.d() && zm.a.world != null && zm.a.world.getScoreboard() != null) {
             try {
-                Object object2;
                 HashSet<Integer> hashSet = new HashSet<Integer>(this.k);
-                for (Object object2 : zm.a.world.getEntities()) {
-                    if (!hashSet.contains(object2.getId())) continue;
-                    this.c((Entity)object2);
+                for (Entity entity : zm.a.world.getEntities()) {
+                    if (!hashSet.contains(entity.getId())) continue;
+                    this.c(entity);
                 }
-                ArrayList arrayList = new ArrayList();
+                ArrayList<Team> arrayList = new ArrayList<>();
                 for (Team EmptyBlockView : zm.a.world.getScoreboard().getTeams()) {
                     if (!EmptyBlockView.getName().startsWith("outlineESP_")) continue;
                     arrayList.add(EmptyBlockView);
                 }
-                object2 = arrayList.iterator();
-                while (object2.hasNext()) {
-                    Team EmptyBlockView;
-                    EmptyBlockView = (Team)object2.next();
+                Iterator<Team> iterator = arrayList.iterator();
+                while (iterator.hasNext()) {
+                    Team EmptyBlockView = iterator.next();
                     zm.a.world.getScoreboard().removeTeam(EmptyBlockView);
                 }
                 this.k.clear();

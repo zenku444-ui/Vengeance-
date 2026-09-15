@@ -72,11 +72,11 @@ extends zb {
         if (!(class_12972 instanceof PlayerEntity)) {
             return null;
         }
-        ItemStackParticleEffect = (PlayerEntity)class_12972;
-        if (com.vengeance.vengeanceclient.utils.q.za.c(ItemStackParticleEffect.getUuid()) && this.l.b()) {
+        PlayerEntity player = (PlayerEntity)class_12972;
+        if (com.vengeance.vengeanceclient.utils.q.za.c(player.getUuid()) && this.l.b()) {
             return null;
         }
-        return ItemStackParticleEffect;
+        return player;
     }
 
     @EventHandler

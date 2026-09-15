@@ -32,6 +32,7 @@ import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -151,10 +152,10 @@ extends zb {
         HitResult ItemStackParticleEffect = zo.a.crosshairTarget;
         if (ItemStackParticleEffect instanceof EntityHitResult) {
             class_39662 = (EntityHitResult)ItemStackParticleEffect;
-            if (this.l.a(this.s) && (class_12972 = class_39662.getEntity()) instanceof EndCrystalEntity) {
-                ItemStackParticleEffect = (EndCrystalEntity)class_12972;
-                if (n <= this.g.a()) {
-                    if (zo.a.player.getEntityPos().distanceTo(ItemStackParticleEffect.getEntityPos()) <= 6.0) {
+            if (this.l.a(this.s)) {
+                Entity targetEntity = class_39662.getEntity();
+                if (targetEntity instanceof EndCrystalEntity endCrystal && n <= this.g.a()) {
+                    if (zo.a.player.getEntityPos().distanceTo(endCrystal.getEntityPos()) <= 6.0) {
                         if (this.d.b() && zo.a.player.hasStatusEffect(StatusEffects.WEAKNESS)) {
                             zd.b();
                         }
@@ -167,19 +168,18 @@ extends zb {
             }
         }
         if ((ItemStackParticleEffect = zo.a.crosshairTarget) instanceof BlockHitResult) {
-            class_39662 = (BlockHitResult)ItemStackParticleEffect;
+            BlockHitResult blockHit = (BlockHitResult)ItemStackParticleEffect;
             if (this.m.a(this.t)) {
-                BlockPos class_23382;
-                ItemStackParticleEffect = class_39662.getBlockPos();
-                class_12972 = ItemStackParticleEffect.offset(class_39662.getSide());
-                if (this.b((BlockPos)ItemStackParticleEffect) && this.c((BlockPos)class_12972) && n <= this.f.a()) {
+                BlockPos blockPos = blockHit.getBlockPos();
+                BlockPos offsetPos = blockPos.offset(blockHit.getSide());
+                if (this.b(blockPos) && this.c(offsetPos) && n <= this.f.a()) {
                     if (this.a(Items.END_CRYSTAL)) {
                         zd.a(Items.END_CRYSTAL);
                         ((MinecraftClientAccessor)a).invokeDoItemUse();
                         this.m.a();
                         this.t = this.n.nextLong(this.j.a(), this.k.a());
                     }
-                } else if (this.a((BlockPos)class_12972) && !this.r && !zo.a.world.getBlockState(class_23382 = class_12972.down()).isAir() && this.a(Items.OBSIDIAN)) {
+                } else if (this.a(offsetPos) && !this.r && !zo.a.world.getBlockState(offsetPos.down()).isAir() && this.a(Items.OBSIDIAN)) {
                     zd.a(Items.OBSIDIAN);
                     ((MinecraftClientAccessor)a).invokeDoItemUse();
                     this.r = true;
@@ -242,8 +242,8 @@ extends zb {
         if (zo.a.world == null) {
             return false;
         }
-        List list = zo.a.world.getPlayers();
-        for (Entity class_12972 : list) {
+        List<? extends PlayerEntity> list = zo.a.world.getPlayers();
+        for (PlayerEntity class_12972 : list) {
             if (class_12972 == zo.a.player || !class_12972.isRemoved() && !(((LivingEntity)class_12972).getHealth() <= 0.0f) || !(class_12972.squaredDistanceTo((Entity)zo.a.player) < 36.0)) continue;
             return true;
         }

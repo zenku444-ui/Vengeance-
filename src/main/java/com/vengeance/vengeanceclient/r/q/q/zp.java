@@ -95,8 +95,8 @@ extends zb {
             return;
         }
         BlockHitResult class_39652 = (BlockHitResult)ItemStackParticleEffect;
-        ItemStackParticleEffect = class_39652.getBlockPos();
-        BlockState class_26802 = zp.a.world.getBlockState((BlockPos)ItemStackParticleEffect);
+        BlockPos blockPos = class_39652.getBlockPos();
+        BlockState class_26802 = zp.a.world.getBlockState(blockPos);
         if (class_26802.isAir()) {
             return;
         }

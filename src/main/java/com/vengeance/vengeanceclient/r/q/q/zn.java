@@ -117,8 +117,8 @@ extends zb {
             return;
         }
         BlockHitResult class_39652 = (BlockHitResult)ItemStackParticleEffect;
-        ItemStackParticleEffect = class_39652.getBlockPos();
-        BlockState class_26802 = zn.a.world.getBlockState((BlockPos)ItemStackParticleEffect);
+        BlockPos blockPos = class_39652.getBlockPos();
+        BlockState class_26802 = zn.a.world.getBlockState(blockPos);
         if (class_26802.isAir()) {
             return;
         }
@@ -136,7 +136,7 @@ extends zb {
             }
             return;
         }
-        BlockPos class_23382 = ItemStackParticleEffect.offset(class_39652.getSide());
+        BlockPos class_23382 = blockPos.offset(class_39652.getSide());
         if (this.a(class_23382) && !this.i && this.a(Items.RESPAWN_ANCHOR)) {
             this.i = true;
             ((MinecraftClientAccessor)a).invokeDoItemUse();

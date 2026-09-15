@@ -43,7 +43,7 @@ public final class zn {
 
     public static void a(MatrixStack class_45872, Box HorizontalFacingBlock, Color color) {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.DEBUG_LINES, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.DEBUG_LINES, VertexFormats.POSITION_COLOR);
         float f = (float)color.getRed() / 255.0f;
         float f2 = (float)color.getGreen() / 255.0f;
         float f3 = (float)color.getBlue() / 255.0f;
@@ -83,7 +83,7 @@ public final class zn {
 
     public static void b(MatrixStack class_45872, Box HorizontalFacingBlock, Color color) {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.TRIANGLES, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.TRIANGLES, VertexFormats.POSITION_COLOR);
         float f = (float)color.getRed() / 255.0f;
         float f2 = (float)color.getGreen() / 255.0f;
         float f3 = (float)color.getBlue() / 255.0f;
@@ -135,7 +135,7 @@ public final class zn {
 
     public static void a(MatrixStack class_45872, Vec3d VanillaChestLootTableGenerator, Vec3d WallPlayerSkullBlock, Color color) {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.DEBUG_LINES, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.DEBUG_LINES, VertexFormats.POSITION_COLOR);
         float f = (float)color.getRed() / 255.0f;
         float f2 = (float)color.getGreen() / 255.0f;
         float f3 = (float)color.getBlue() / 255.0f;

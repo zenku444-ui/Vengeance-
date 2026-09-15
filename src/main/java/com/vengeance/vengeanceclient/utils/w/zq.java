@@ -85,7 +85,7 @@ public final class zq {
         Matrix4f matrix4f = class_45872.peek().getPositionMatrix();
         float f7 = f * 0.5f;
         float f8 = f2 * 0.5f;
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
         class_2872.vertex((Matrix4fc)matrix4f, -f7, f8, 0.0f).texture(0.0f, 1.0f).color(f4, f5, f6, f3);
         class_2872.vertex((Matrix4fc)matrix4f, f7, f8, 0.0f).texture(1.0f, 1.0f).color(f4, f5, f6, f3);
         class_2872.vertex((Matrix4fc)matrix4f, f7, -f8, 0.0f).texture(1.0f, 0.0f).color(f4, f5, f6, f3);

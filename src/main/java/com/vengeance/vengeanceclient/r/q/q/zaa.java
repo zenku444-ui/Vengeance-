@@ -209,8 +209,8 @@ extends zb {
             return false;
         }
         EntityHitResult class_39662 = (EntityHitResult)ItemStackParticleEffect;
-        ItemStackParticleEffect = class_39662.getEntity();
-        if (ItemStackParticleEffect != this.aa || !this.a((Entity)ItemStackParticleEffect)) {
+        Entity targetEntity = class_39662.getEntity();
+        if (targetEntity != this.aa || !this.a(targetEntity)) {
             return false;
         }
         if (zaa.a.player.isTouchingWater() || zaa.a.player.isInLava() || zaa.a.player.isSubmergedInWater() || zaa.a.player.isClimbing()) {
@@ -288,46 +288,16 @@ extends zb {
         if (class_12972 instanceof WindChargeEntity) {
             return false;
         }
-        Entity class_12973 = class_12972;
-        Objects.requireNonNull(class_12973);
-        class_16572 = class_12973;
-        int n = 0;
-        block5: while (true) {
-            switch (SwitchBootstraps.typeSwitch("typeSwitch", new Object[]{EndCrystalEntity.class, Tameable.class, PassiveEntity.class}, (Object)class_16572, n)) {
-                case 0: {
-                    EndCrystalEntity class_15112 = (EndCrystalEntity)class_16572;
-                    if (!k.b()) {
-                        n = 1;
-                        continue block5;
-                    }
-                    bl = false;
-                    break block5;
-                }
-                case 1: {
-                    Tameable class_60252 = (Tameable)class_16572;
-                    bl = false;
-                    break block5;
-                }
-                case 2: {
-                    PassiveEntity class_12962 = (PassiveEntity)class_16572;
-                    if (!i.b()) {
-                        n = 3;
-                        continue block5;
-                    }
-                    bl = false;
-                    break block5;
-                }
-                default: {
-                    if (!j.b() || !class_12972.isInvisible()) {
-                        bl = true;
-                        break block5;
-                    }
-                    bl = false;
-                    break block5;
-                }
-            }
-            break;
+        if (class_12972 instanceof EndCrystalEntity && k.b()) {
+            return false;
         }
+        if (class_12972 instanceof Tameable) {
+            return false;
+        }
+        if (class_12972 instanceof PassiveEntity && i.b()) {
+            return false;
+        }
+        bl = !j.b() || !class_12972.isInvisible();
         return bl;
     }
 

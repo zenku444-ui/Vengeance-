@@ -23,7 +23,7 @@ public final class za {
     public static void a(BufferBuilder class_2872) {
         try (BuiltBuffer class_98012 = class_2872.end();){
             try {
-                za.a(class_98012.getDrawParameters().comp_752()).draw(class_98012);
+                za.a(class_98012.getDrawParameters().mode()).draw(class_98012);
             }
             catch (Throwable throwable) {
                 try {

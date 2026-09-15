@@ -78,7 +78,7 @@ extends zb {
         if (class_17992 == null || class_17992.isEmpty()) {
             return false;
         }
-        Identifier class_29602 = Registries.ITEM.getId((Object)class_17992.getItem());
+        Identifier class_29602 = Registries.ITEM.getId(class_17992.getItem());
         if (class_29602 == null) {
             return false;
         }

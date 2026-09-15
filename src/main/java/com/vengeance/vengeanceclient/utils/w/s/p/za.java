@@ -53,7 +53,7 @@ extends com.vengeance.vengeanceclient.utils.w.s.za<com.vengeance.vengeanceclient
     }
 
     @Override
-    protected /* synthetic */ Object c() {
+    protected com.vengeance.vengeanceclient.utils.w.s.q.za c() {
         return this.d();
     }
 }

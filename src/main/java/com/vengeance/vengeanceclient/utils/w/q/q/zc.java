@@ -18,7 +18,6 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
-import java.lang.runtime.ObjectMethods;
 import net.minecraft.client.util.math.MatrixStack;
 import org.joml.Matrix3f;
 import org.joml.Matrix3fc;
@@ -37,7 +36,7 @@ extends MatrixStack {
     public zc() {
         if (this.b) {
             this.d = new za(new Matrix4f(), new Matrix3f());
-            this.c.add((Object)this.d);
+            this.c.add(this.d);
         }
     }
 
@@ -100,7 +99,7 @@ extends MatrixStack {
             return;
         }
         this.d = new za(new Matrix4f((Matrix4fc)this.d.a), new Matrix3f((Matrix3fc)this.d.b));
-        this.c.add((Object)this.d);
+        this.c.add(this.d);
     }
 
     public void pop() {
@@ -112,7 +111,7 @@ extends MatrixStack {
             throw new IllegalStateException("Trying to pop an empty stack");
         }
         this.c.pop();
-        this.d = (za)this.c.top();
+        this.d = this.c.top();
     }
 
     public MatrixStack.Entry peek() {
@@ -156,20 +155,6 @@ extends MatrixStack {
     }
 
     private record za(Matrix4f a, Matrix3f b) {
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{za.class, "positionMatrix;normalMatrix", "a", "b"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{za.class, "positionMatrix;normalMatrix", "a", "b"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{za.class, "positionMatrix;normalMatrix", "a", "b"}, this, object);
-        }
     }
 }
 

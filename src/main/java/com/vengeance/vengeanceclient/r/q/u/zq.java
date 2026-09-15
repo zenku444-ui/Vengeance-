@@ -96,7 +96,7 @@ extends zb {
 
     @EventHandler
     private void onRender2D(com.vengeance.vengeanceclient.p.p.t.za za2) {
-        Object object;
+        List<Vec3d> projectilePath;
         if (this.d() || zq.a.player == null || zq.a.world == null) {
             return;
         }
@@ -109,8 +109,8 @@ extends zb {
             return;
         }
         ItemStack class_17992 = zq.a.player.getMainHandStack();
-        if (this.b(class_17992) && this.a(class_17992) && !(object = this.c(class_17992)).isEmpty()) {
-            this.a((List<Vec3d>)object, this.g.h(), false);
+        if (this.b(class_17992) && this.a(class_17992) && !(projectilePath = this.c(class_17992)).isEmpty()) {
+            this.a(projectilePath, this.g.h(), false);
         }
         if (this.c.b()) {
             for (za za3 : this.k.values()) {
@@ -143,9 +143,9 @@ extends zb {
 
     private void n() {
         this.k.entrySet().removeIf(entry -> ((za)entry.getValue()).a(this.d.f()) || !((Entity)entry.getKey()).isAlive() || ((Entity)entry.getKey()).isRemoved());
-        for (Object object : zq.a.world.getEntities()) {
-            if (!this.a((Entity)object) || this.k.containsKey(object) || ((Entity)object).age >= 5 || !(object.squaredDistanceTo((Entity)zq.a.player) < 100.0)) continue;
-            this.k.put((Entity)object, new za());
+        for (Entity entity : zq.a.world.getEntities()) {
+            if (!this.a(entity) || this.k.containsKey(entity) || entity.age >= 5 || !(entity.squaredDistanceTo(zq.a.player) < 100.0)) continue;
+            this.k.put(entity, new za());
         }
         float f = a.getRenderTickCounter().getTickProgress(true);
         for (Map.Entry entry2 : this.k.entrySet()) {
@@ -260,7 +260,6 @@ extends zb {
 
     private void a(List<Vec3d> list, Color color, boolean bl) {
         Vec3d VanillaChestLootTableGenerator;
-        Object object;
         Vec3d WallPlayerSkullBlock;
         if (list.size() < 2) {
             return;
@@ -268,7 +267,7 @@ extends zb {
         float f = this.e.b();
         for (int i = 0; i < list.size() - 1; ++i) {
             WallPlayerSkullBlock = list.get(i);
-            object = list.get(i + 1);
+            Vec3d object = list.get(i + 1);
             Vec3d VanillaEntityLootTableGenerator = zr.a(WallPlayerSkullBlock);
             Vec3d PlayerSkullBlock = zr.a(object);
             if (VanillaEntityLootTableGenerator == null || PlayerSkullBlock == null || !(VanillaEntityLootTableGenerator.z >= 0.0) || !(VanillaEntityLootTableGenerator.z < 1.0) || !(PlayerSkullBlock.z >= 0.0) || !(PlayerSkullBlock.z < 1.0)) continue;
@@ -280,10 +279,10 @@ extends zb {
             com.vengeance.vengeanceclient.utils.w.r.za.b((float)VanillaEntityLootTableGenerator.x, (float)VanillaEntityLootTableGenerator.y, (float)PlayerSkullBlock.x, (float)PlayerSkullBlock.y, f, color2);
         }
         if (this.b.b() && !bl && !list.isEmpty() && (WallPlayerSkullBlock = zr.a(VanillaChestLootTableGenerator = list.get(list.size() - 1))) != null && WallPlayerSkullBlock.z >= 0.0 && WallPlayerSkullBlock.z < 1.0) {
-            object = this.h.h();
+            Color hitColor = this.h.h();
             float f3 = this.f.b();
             com.vengeance.vengeanceclient.utils.w.r.za.a((float)WallPlayerSkullBlock.x, (float)WallPlayerSkullBlock.y, f3 + 2.0f, new Color(0, 0, 0, 150));
-            com.vengeance.vengeanceclient.utils.w.r.za.a((float)WallPlayerSkullBlock.x, (float)WallPlayerSkullBlock.y, f3, (Color)object);
+            com.vengeance.vengeanceclient.utils.w.r.za.a((float)WallPlayerSkullBlock.x, (float)WallPlayerSkullBlock.y, f3, hitColor);
         }
     }
 

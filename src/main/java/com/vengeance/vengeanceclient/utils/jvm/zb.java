@@ -37,11 +37,11 @@ public final class zb {
         }
         try {
             JsonObject jsonObject;
-            FileReader fileReader;
+            JsonArray jsonArray;
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             if (file2.exists()) {
                 try {
-                    fileReader = new FileReader(file2, StandardCharsets.UTF_8);
+                    FileReader fileReader = new FileReader(file2, StandardCharsets.UTF_8);
                     try {
                         jsonObject = (JsonObject)gson.fromJson((Reader)fileReader, JsonObject.class);
                         if (jsonObject == null) {
@@ -59,29 +59,29 @@ public final class zb {
                 jsonObject = new JsonObject();
             }
             if (jsonObject.has("hidden_mods") && jsonObject.get("hidden_mods").isJsonArray()) {
-                fileReader = jsonObject.getAsJsonArray("hidden_mods");
+                jsonArray = jsonObject.getAsJsonArray("hidden_mods");
             } else {
-                fileReader = new JsonArray();
-                jsonObject.add("hidden_mods", (JsonElement)fileReader);
+                jsonArray = new JsonArray();
+                jsonObject.add("hidden_mods", jsonArray);
             }
             HashSet<String> hashSet = new HashSet<String>();
-            Object object = fileReader.iterator();
-            while (object.hasNext()) {
-                JsonElement jsonElement = (JsonElement)object.next();
+            java.util.Iterator<JsonElement> iterator = jsonArray.iterator();
+            while (iterator.hasNext()) {
+                JsonElement jsonElement = iterator.next();
                 if (!jsonElement.isJsonPrimitive() || !jsonElement.getAsJsonPrimitive().isString()) continue;
                 hashSet.add(jsonElement.getAsString());
             }
             if (hashSet.contains(a)) {
                 return;
             }
-            fileReader.add(a);
-            object = new FileWriter(file2, StandardCharsets.UTF_8);
+            jsonArray.add(a);
+            FileWriter fileWriter = new FileWriter(file2, StandardCharsets.UTF_8);
             try {
-                gson.toJson((JsonElement)jsonObject, (Appendable)object);
-                ((OutputStreamWriter)object).flush();
+                gson.toJson((JsonElement)jsonObject, (Appendable)fileWriter);
+                fileWriter.flush();
             }
             finally {
-                ((OutputStreamWriter)object).close();
+                fileWriter.close();
             }
         }
         catch (IOException iOException) {

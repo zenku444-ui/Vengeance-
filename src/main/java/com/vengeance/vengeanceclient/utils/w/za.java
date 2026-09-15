@@ -187,20 +187,6 @@ public final class za {
             this(f, f2, l, 0L, zc.f);
         }
 
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{ze.class, "startValue;targetValue;duration;delay;easing", "a", "b", "c", "d", "e"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{ze.class, "startValue;targetValue;duration;delay;easing", "a", "b", "c", "d", "e"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{ze.class, "startValue;targetValue;duration;delay;easing", "a", "b", "c", "d", "e"}, this, object);
-        }
     }
 
     public static class zb {

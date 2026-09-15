@@ -79,9 +79,8 @@ extends zb {
             return;
         }
         HitResult ItemStackParticleEffect = zd.a.crosshairTarget;
-        if (ItemStackParticleEffect instanceof EntityHitResult && (class_12972 = (class_39662 = (EntityHitResult)ItemStackParticleEffect).getEntity()) instanceof EndCrystalEntity) {
-            ItemStackParticleEffect = (EndCrystalEntity)class_12972;
-            if (!ItemStackParticleEffect.isRemoved() && ItemStackParticleEffect.isAlive() && zd.a.world.getEntityById(ItemStackParticleEffect.getId()) != null && zd.a.player.getEntityPos().distanceTo(ItemStackParticleEffect.getEntityPos()) <= 4.5) {
+        if (ItemStackParticleEffect instanceof EntityHitResult && (class_12972 = (class_39662 = (EntityHitResult)ItemStackParticleEffect).getEntity()) instanceof EndCrystalEntity endCrystal) {
+            if (!endCrystal.isRemoved() && endCrystal.isAlive() && zd.a.world.getEntityById(endCrystal.getId()) != null && zd.a.player.getEntityPos().distanceTo(endCrystal.getEntityPos()) <= 4.5) {
                 if (this.g.b() && zd.a.player.hasStatusEffect(StatusEffects.WEAKNESS)) {
                     com.vengeance.vengeanceclient.utils.t.zd.b();
                 }
@@ -91,10 +90,10 @@ extends zb {
         }
         ItemStackParticleEffect = zd.a.crosshairTarget;
         if (ItemStackParticleEffect instanceof BlockHitResult) {
-            class_39662 = (BlockHitResult)ItemStackParticleEffect;
-            ItemStackParticleEffect = class_39662.getBlockPos();
-            class_12972 = ItemStackParticleEffect.offset(class_39662.getSide());
-            if (this.a((BlockPos)ItemStackParticleEffect) && this.b((BlockPos)class_12972)) {
+            BlockHitResult blockHit = (BlockHitResult)ItemStackParticleEffect;
+            BlockPos blockPos = blockHit.getBlockPos();
+            BlockPos offsetPos = blockPos.offset(blockHit.getSide());
+            if (this.a(blockPos) && this.b(offsetPos)) {
                 if (this.e.b() && this.o()) {
                     com.vengeance.vengeanceclient.utils.t.zd.a(Items.END_CRYSTAL);
                 }

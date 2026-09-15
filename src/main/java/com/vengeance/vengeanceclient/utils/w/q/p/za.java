@@ -68,7 +68,7 @@ implements Closeable {
             this.put('F', 0xFFFFFF);
         }
     };
-    private static final Object2ObjectArrayMap<Identifier, ObjectList<za>> b = new Object2ObjectArrayMap();
+    private static final Object2ObjectArrayMap<Identifier, ObjectList<za$DrawEntry>> b = new Object2ObjectArrayMap();
     private final float c;
     private final ObjectList<zc> d = new ObjectArrayList();
     private final Char2ObjectArrayMap<zb> e = new Char2ObjectArrayMap();
@@ -138,8 +138,8 @@ implements Closeable {
             return zc2.a(c);
         }
         int n = za.a(c, this.f);
-        zc22 = this.a((char)n, (char)(n + this.f));
-        return zc22.a(c);
+        zc zc2 = this.a((char)n, (char)(n + this.f));
+        return zc2.a(c);
     }
 
     private zb b(char c) {
@@ -147,7 +147,7 @@ implements Closeable {
     }
 
     public void a(MatrixStack class_45872, String string, float f, float f2, Color color) {
-        Object object2;
+        za$DrawEntry object2;
         float f3 = (float)color.getRed() / 255.0f;
         float f4 = (float)color.getGreen() / 255.0f;
         float f5 = (float)color.getBlue() / 255.0f;
@@ -199,18 +199,18 @@ implements Closeable {
             if (zb2.e() != ' ') {
                 Identifier class_29602 = zb2.f().d;
                 object2 = new za$DrawEntry(f10, f11, f7, f8, f9, zb2);
-                ((ObjectList)b.computeIfAbsent((Object)class_29602, object -> new ObjectArrayList())).add(object2);
+                b.computeIfAbsent(class_29602, object -> new ObjectArrayList<>()).add(object2);
             }
             f10 += (float)zb2.c();
         }
         for (Identifier class_29603 : b.keySet()) {
             GL11.glTexParameteri((int)3553, (int)10241, (int)9728);
             GL11.glTexParameteri((int)3553, (int)10240, (int)9728);
-            List list = (List)b.get((Object)class_29603);
-            BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
-            Iterator iterator = list.iterator();
+            ObjectList<za$DrawEntry> list = b.get(class_29603);
+            BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+            Iterator<za$DrawEntry> iterator = list.iterator();
             while (iterator.hasNext()) {
-                object2 = (za$DrawEntry)iterator.next();
+                object2 = iterator.next();
                 float f12 = object2.a;
                 float f13 = object2.b;
                 float f14 = object2.c;

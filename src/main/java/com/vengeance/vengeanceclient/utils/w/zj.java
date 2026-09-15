@@ -9,8 +9,6 @@ package com.vengeance.vengeanceclient.utils.w;
 import com.vengeance.vengeanceclient.utils.w.zi;
 import com.vengeance.vengeanceclient.utils.w.zn;
 import java.awt.Color;
-import java.lang.invoke.MethodHandle;
-import java.lang.runtime.ObjectMethods;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -178,21 +176,21 @@ public final class zj {
      * Unable to fully structure code
      */
     private static void b(DrawContext var0, int var1_1, int var2_2, int var3_3, int var4_4, int var5_5, Color var6_6) {
-        var7_7 = Math.abs(var3_3 - var1_1);
-        var8_8 = Math.abs(var4_4 - var2_2);
-        var9_9 = var1_1 < var3_3 ? 1 : -1;
-        var10_10 = var2_2 < var4_4 ? 1 : -1;
-        var11_11 = var7_7 - var8_8;
-        var12_12 = var1_1;
-        var13_13 = var2_2;
+        int var7_7 = Math.abs(var3_3 - var1_1);
+        int var8_8 = Math.abs(var4_4 - var2_2);
+        int var9_9 = var1_1 < var3_3 ? 1 : -1;
+        int var10_10 = var2_2 < var4_4 ? 1 : -1;
+        int var11_11 = var7_7 - var8_8;
+        int var12_12 = var1_1;
+        int var13_13 = var2_2;
         while (true) {
-            for (var14_14 = -var5_5 / 2; var14_14 <= var5_5 / 2; ++var14_14) {
-                for (var15_15 = -var5_5 / 2; var15_15 <= var5_5 / 2; ++var15_15) {
+            for (int var14_14 = -var5_5 / 2; var14_14 <= var5_5 / 2; ++var14_14) {
+                for (int var15_15 = -var5_5 / 2; var15_15 <= var5_5 / 2; ++var15_15) {
                     var0.fill(var12_12 + var14_14, var13_13 + var15_15, var12_12 + var14_14 + 1, var13_13 + var15_15 + 1, var6_6.getRGB());
                 }
             }
             if (var12_12 == var3_3 && var13_13 == var4_4) break;
-            var14_14 = 2 * var11_11;
+            int var14_14 = 2 * var11_11;
             if (var14_14 > -var8_8) {
                 var11_11 -= var8_8;
                 var12_12 += var9_9;
@@ -226,37 +224,9 @@ public final class zj {
             this(string, string2, null);
         }
 
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{zb.class, "key;value;color", "a", "b", "c"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zb.class, "key;value;color", "a", "b", "c"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zb.class, "key;value;color", "a", "b", "c"}, this, object);
-        }
     }
 
     public record zc(float a, float b, Color c, int d, String e) {
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{zc.class, "relativeX;relativeZ;color;size;label", "a", "b", "c", "d", "e"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zc.class, "relativeX;relativeZ;color;size;label", "a", "b", "c", "d", "e"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zc.class, "relativeX;relativeZ;color;size;label", "a", "b", "c", "d", "e"}, this, object);
-        }
     }
 
     public static class za {

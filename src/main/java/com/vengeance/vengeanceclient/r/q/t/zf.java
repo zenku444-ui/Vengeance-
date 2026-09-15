@@ -28,6 +28,7 @@ import java.util.Random;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -95,12 +96,12 @@ extends zb {
         }
         InventoryScreen RealmsConnection = (InventoryScreen)class_4372;
         try {
-            class_4372 = ((HandledScreenAccessor)RealmsConnection).getFocusedSlot();
-            if (class_4372 == null || class_4372.getIndex() < 9 || !this.a(class_4372.getStack()) || !this.r()) {
+            Slot focusedSlot = ((HandledScreenAccessor)RealmsConnection).getFocusedSlot();
+            if (focusedSlot == null || focusedSlot.getIndex() < 9 || !this.a(focusedSlot.getStack()) || !this.r()) {
                 return;
             }
             if (this.n.a(d.a() + this.o.nextInt(10))) {
-                this.b(class_4372.getIndex());
+                this.b(focusedSlot.getIndex());
             }
         }
         catch (Exception exception) {
@@ -174,10 +175,10 @@ extends zb {
             return false;
         }
         PotionContentsComponent class_18442 = (PotionContentsComponent)class_17992.get(DataComponentTypes.POTION_CONTENTS);
-        if (class_18442 == null || class_18442.comp_2378().isEmpty()) {
+        if (class_18442 == null || class_18442.potion().isEmpty()) {
             return false;
         }
-        return ((Potion)((RegistryEntry)class_18442.comp_2378().get()).comp_349()).getEffects().stream().anyMatch(class_12932 -> g.b() && class_12932.getEffectType().equals((Object)StatusEffects.INSTANT_HEALTH) || h.b() && class_12932.getEffectType().equals((Object)StatusEffects.REGENERATION) || i.b() && class_12932.getEffectType().equals((Object)StatusEffects.STRENGTH) || j.b() && class_12932.getEffectType().equals((Object)StatusEffects.SPEED));
+        return class_18442.potion().map(RegistryEntry::value).map(Potion::getEffects).orElse(java.util.Collections.emptyList()).stream().anyMatch(class_12932 -> g.b() && class_12932.getEffectType().equals((Object)StatusEffects.INSTANT_HEALTH) || h.b() && class_12932.getEffectType().equals((Object)StatusEffects.REGENERATION) || i.b() && class_12932.getEffectType().equals((Object)StatusEffects.STRENGTH) || j.b() && class_12932.getEffectType().equals((Object)StatusEffects.SPEED));
     }
 
     private boolean a(Item class_17922) {

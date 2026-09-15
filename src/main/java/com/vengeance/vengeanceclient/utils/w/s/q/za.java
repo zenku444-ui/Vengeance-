@@ -17,8 +17,6 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import com.vengeance.vengeanceclient.utils.w.s.r.zb;
 import com.vengeance.vengeanceclient.utils.w.s.zc;
 import com.vengeance.vengeanceclient.utils.w.zd;
-import java.lang.invoke.MethodHandle;
-import java.lang.runtime.ObjectMethods;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
@@ -26,14 +24,6 @@ import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
 
 public record za(com.vengeance.vengeanceclient.utils.w.s.r.zc size, zb radius, com.vengeance.vengeanceclient.utils.w.s.r.za color, float thickness, float smoothness) implements zc {
-
-    public za(com.vengeance.vengeanceclient.utils.w.s.r.zc zc2, zb zb2, com.vengeance.vengeanceclient.utils.w.s.r.za za2, float f, float f2) {
-        this.size = zc2;
-        this.radius = zb2;
-        this.color = za2;
-        this.thickness = f;
-        this.smoothness = f2;
-    }
 
     @Override
     public void a(Matrix4f matrix4f, float f, float f2, float f3) {
@@ -48,7 +38,7 @@ public record za(com.vengeance.vengeanceclient.utils.w.s.r.zc size, zb radius, c
         GlStateManager._blendFuncSeparate((int)770, (int)771, (int)1, (int)771);
         GlStateManager._disableCull();
         zd.a();
-        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.class_5596.QUADS, VertexFormats.POSITION_COLOR);
+        BufferBuilder class_2872 = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
         za.a(class_2872, matrix4f, f, f2, f3, f4, f6, this.color.a(), this.color.a(), this.color.d(), this.color.d());
         za.a(class_2872, matrix4f, f, f2 + f5 - f6, f3, f4, f6, this.color.b(), this.color.b(), this.color.c(), this.color.c());
         za.a(class_2872, matrix4f, f, f2 + f6, f3, f6, Math.max(0.0f, f5 - f6 * 2.0f), this.color.a(), this.color.b(), this.color.b(), this.color.a());
@@ -71,21 +61,6 @@ public record za(com.vengeance.vengeanceclient.utils.w.s.r.zc size, zb radius, c
         float f6 = (float)(n >>> 8 & 0xFF) / 255.0f;
         float f7 = (float)(n & 0xFF) / 255.0f;
         class_2872.vertex((Matrix4fc)matrix4f, f, f2, f3).color(f5, f6, f7, f4);
-    }
-
-    @Override
-    public final String toString() {
-        return ObjectMethods.bootstrap("toString", new MethodHandle[]{za.class, "size;radius;color;thickness;smoothness", "size", "radius", "color", "thickness", "smoothness"}, this);
-    }
-
-    @Override
-    public final int hashCode() {
-        return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{za.class, "size;radius;color;thickness;smoothness", "size", "radius", "color", "thickness", "smoothness"}, this);
-    }
-
-    @Override
-    public final boolean equals(Object object) {
-        return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{za.class, "size;radius;color;thickness;smoothness", "size", "radius", "color", "thickness", "smoothness"}, this, object);
     }
 
     public com.vengeance.vengeanceclient.utils.w.s.r.zc a() {

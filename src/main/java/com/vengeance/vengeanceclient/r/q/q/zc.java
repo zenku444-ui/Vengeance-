@@ -141,15 +141,15 @@ extends zb {
         if (ItemStackParticleEffect == null) {
             return null;
         }
-        if (ItemStackParticleEffect.getType() == HitResult.class_240.BLOCK) {
+        if (ItemStackParticleEffect.getType() == HitResult.Type.BLOCK) {
             BlockHitResult class_39652 = (BlockHitResult)ItemStackParticleEffect;
             return class_39652.getBlockPos().offset(class_39652.getSide());
         }
-        if (ItemStackParticleEffect.getType() == HitResult.class_240.ENTITY) {
+        if (ItemStackParticleEffect.getType() == HitResult.Type.ENTITY) {
             return zc.a.player.getBlockPos().add(0, 1, 0);
         }
         Vec3d VanillaEntityLootTableGenerator = zc.a.player.getCameraPosVec(1.0f);
-        BlockHitResult class_39653 = zc.a.world.raycast(new RaycastContext(VanillaEntityLootTableGenerator, WallPlayerSkullBlock = VanillaEntityLootTableGenerator.add((VanillaChestLootTableGenerator = zc.a.player.getRotationVec(1.0f)).multiply(5.0)), RaycastContext.class_3960.OUTLINE, RaycastContext.class_242.NONE, (Entity)zc.a.player));
+        BlockHitResult class_39653 = zc.a.world.raycast(new RaycastContext(VanillaEntityLootTableGenerator, WallPlayerSkullBlock = VanillaEntityLootTableGenerator.add((VanillaChestLootTableGenerator = zc.a.player.getRotationVec(1.0f)).multiply(5.0)), RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, zc.a.player));
         if (class_39653 != null) {
             return class_39653.getBlockPos().offset(class_39653.getSide());
         }

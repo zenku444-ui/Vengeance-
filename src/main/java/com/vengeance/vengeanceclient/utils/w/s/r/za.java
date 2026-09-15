@@ -4,8 +4,6 @@
 package com.vengeance.vengeanceclient.utils.w.s.r;
 
 import java.awt.Color;
-import java.lang.invoke.MethodHandle;
-import java.lang.runtime.ObjectMethods;
 
 public record za(int color1, int color2, int color3, int color4) {
     public static final za a = new za(0, 0, 0, 0);
@@ -21,28 +19,6 @@ public record za(int color1, int color2, int color3, int color4) {
 
     public za(int n) {
         this(n, n, n, n);
-    }
-
-    public za(int n, int n2, int n3, int n4) {
-        this.color1 = n;
-        this.color2 = n2;
-        this.color3 = n3;
-        this.color4 = n4;
-    }
-
-    @Override
-    public final String toString() {
-        return ObjectMethods.bootstrap("toString", new MethodHandle[]{za.class, "color1;color2;color3;color4", "color1", "color2", "color3", "color4"}, this);
-    }
-
-    @Override
-    public final int hashCode() {
-        return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{za.class, "color1;color2;color3;color4", "color1", "color2", "color3", "color4"}, this);
-    }
-
-    @Override
-    public final boolean equals(Object object) {
-        return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{za.class, "color1;color2;color3;color4", "color1", "color2", "color3", "color4"}, this, object);
     }
 
     public int a() {

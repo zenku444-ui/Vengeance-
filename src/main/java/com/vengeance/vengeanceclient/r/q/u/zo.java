@@ -93,7 +93,7 @@ extends zb {
             } else {
                 GlStateManager._disableDepthTest();
             }
-            VertexConsumerProvider.class_4598 class_45982 = VertexConsumerProvider.immediate((BufferAllocator)c);
+            VertexConsumerProvider.Immediate class_45982 = VertexConsumerProvider.immediate((BufferAllocator)c);
             VertexConsumer class_45882 = class_45982.getBuffer(RenderLayers.entityTranslucent((Identifier)b));
             for (int i = 0; i < n; ++i) {
                 float f6 = (float)i * 120.0f;

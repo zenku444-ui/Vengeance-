@@ -126,11 +126,11 @@ extends zb {
         if (class_18442 == null) {
             return false;
         }
-        if (class_18442.comp_2378().isPresent()) {
-            RegistryEntry class_68802 = (RegistryEntry)class_18442.comp_2378().get();
-            return ((Potion)class_68802.comp_349()).getEffects().stream().anyMatch(class_12932 -> class_12932.getEffectType().equals((Object)StatusEffects.INSTANT_HEALTH));
+        if (class_18442.potion().isPresent()) {
+            RegistryEntry class_68802 = (RegistryEntry)class_18442.potion().get();
+            return ((Potion)class_68802.value()).getEffects().stream().anyMatch(class_12932 -> class_12932.getEffectType().equals(StatusEffects.INSTANT_HEALTH));
         }
-        return class_18442.comp_2380().stream().anyMatch(class_12932 -> class_12932.getEffectType().equals((Object)StatusEffects.INSTANT_HEALTH));
+        return class_18442.customEffects().stream().anyMatch(class_12932 -> class_12932.getEffectType().equals(StatusEffects.INSTANT_HEALTH));
     }
 
     @Override

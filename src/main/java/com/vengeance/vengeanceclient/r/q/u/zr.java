@@ -225,12 +225,12 @@ extends com.vengeance.vengeanceclient.r.zb {
 
         zc(zr zr2) {
             this.a = zr2.n.a();
-            this.b = a.player.getName().getString();
+            this.b = zr.this.a.player.getName().getString();
             this.c = LocalTime.now().format(m);
-            int n = a.getCurrentFps();
+            int n = zr.this.a.getCurrentFps();
             this.d = n + " Fps";
-            this.e = String.format("%d %d %d", (int)a.player.getX(), (int)a.player.getY(), (int)a.player.getZ());
-            int n2 = a.player.networkHandler.getPlayerListEntry(a.player.getUuid()) != null ? a.player.networkHandler.getPlayerListEntry(a.player.getUuid()).getLatency() : 0;
+            this.e = String.format("%d %d %d", (int)zr.this.a.player.getX(), (int)zr.this.a.player.getY(), (int)zr.this.a.player.getZ());
+            int n2 = zr.this.a.player.networkHandler.getPlayerListEntry(zr.this.a.player.getUuid()) != null ? zr.this.a.player.networkHandler.getPlayerListEntry(zr.this.a.player.getUuid()).getLatency() : 0;
             this.f = n2 + " Ping";
         }
     }

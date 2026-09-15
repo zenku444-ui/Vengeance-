@@ -32,7 +32,7 @@ public class za {
             if (this.d != null) {
                 this.d.cancel();
             }
-            this.d = new TimerTask(this){
+            this.d = new TimerTask(){
 
                 @Override
                 public void run() {

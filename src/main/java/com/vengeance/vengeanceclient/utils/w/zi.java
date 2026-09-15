@@ -278,32 +278,7 @@ public final class zi {
         });
     }
 
-    public static final class zc
-    extends Enum<zc> {
-        public static final /* enum */ zc a = new zc();
-        public static final /* enum */ zc b = new zc();
-        public static final /* enum */ zc c = new zc();
-        public static final /* enum */ zc d = new zc();
-        public static final /* enum */ zc e = new zc();
-        public static final /* enum */ zc f = new zc();
-        private static final /* synthetic */ zc[] g;
-
-        public static zc[] values() {
-            return (zc[])g.clone();
-        }
-
-        public static zc valueOf(String string) {
-            return Enum.valueOf(zc.class, string);
-        }
-
-        private static /* synthetic */ zc[] a() {
-            return new zc[]{a, b, c, d, e, f};
-        }
-
-        static {
-            g = zc.a();
-        }
-    }
+    public enum zc { a, b, c, d, e, f }
 
     private static class za {
         float a;
@@ -340,30 +315,7 @@ public final class zi {
         public static final Color p = new Color(33, 150, 243);
     }
 
-    public static final class ze
-    extends Enum<ze> {
-        public static final /* enum */ ze a = new ze();
-        public static final /* enum */ ze b = new ze();
-        public static final /* enum */ ze c = new ze();
-        public static final /* enum */ ze d = new ze();
-        private static final /* synthetic */ ze[] e;
-
-        public static ze[] values() {
-            return (ze[])e.clone();
-        }
-
-        public static ze valueOf(String string) {
-            return Enum.valueOf(ze.class, string);
-        }
-
-        private static /* synthetic */ ze[] a() {
-            return new ze[]{a, b, c, d};
-        }
-
-        static {
-            e = ze.a();
-        }
-    }
+    public enum ze { a, b, c, d }
 
     public static class zd {
         public static void a(DrawContext class_3322, int n, int n2, int n3, int n4, int n5, int n6, Color color) {

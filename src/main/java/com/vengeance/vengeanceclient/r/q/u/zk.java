@@ -74,7 +74,7 @@ extends zb {
         for (Entity class_12972 : zk.a.world.getEntities()) {
             float f;
             float f2;
-            Object object;
+            Vec3d projected;
             Vec3d class_24322;
             if (!(class_12972 instanceof LivingEntity) || !this.b(class_12972)) continue;
             Box HorizontalFacingBlock = class_12972.getBoundingBox();
@@ -87,25 +87,25 @@ extends zb {
             Box InfestedBlock = new Box(HorizontalFacingBlock.minX - class_12972.getX() + d - 0.05, HorizontalFacingBlock.minY - class_12972.getY() + d2, HorizontalFacingBlock.minZ - class_12972.getZ() + d3 - 0.05, HorizontalFacingBlock.maxX - class_12972.getX() + d + 0.05, HorizontalFacingBlock.maxY - class_12972.getY() + d2 + 0.1, HorizontalFacingBlock.maxZ - class_12972.getZ() + d3 + 0.05);
             Vec3d[] class_243Array = new Vec3d[]{new Vec3d(InfestedBlock.minX, InfestedBlock.minY, InfestedBlock.minZ), new Vec3d(InfestedBlock.minX, InfestedBlock.maxY, InfestedBlock.minZ), new Vec3d(InfestedBlock.maxX, InfestedBlock.minY, InfestedBlock.minZ), new Vec3d(InfestedBlock.maxX, InfestedBlock.maxY, InfestedBlock.minZ), new Vec3d(InfestedBlock.minX, InfestedBlock.minY, InfestedBlock.maxZ), new Vec3d(InfestedBlock.minX, InfestedBlock.maxY, InfestedBlock.maxZ), new Vec3d(InfestedBlock.maxX, InfestedBlock.minY, InfestedBlock.maxZ), new Vec3d(InfestedBlock.maxX, InfestedBlock.maxY, InfestedBlock.maxZ)};
             Vector4d vector4d = null;
-            for (Vec3d class_24322 : class_243Array) {
-                object = zr.a(class_24322);
-                if (!(object.z > 0.0) || !(object.z < 1.0)) continue;
+            for (Vec3d corner : class_243Array) {
+                projected = zr.a(corner);
+                if (!(projected.z > 0.0) || !(projected.z < 1.0)) continue;
                 if (vector4d == null) {
-                    vector4d = new Vector4d(object.x, object.y, object.z, 0.0);
+                    vector4d = new Vector4d(projected.x, projected.y, projected.z, 0.0);
                 }
-                vector4d.x = Math.min(object.x, vector4d.x);
-                vector4d.y = Math.min(object.y, vector4d.y);
-                vector4d.z = Math.max(object.x, vector4d.z);
-                vector4d.w = Math.max(object.y, vector4d.w);
+                vector4d.x = Math.min(projected.x, vector4d.x);
+                vector4d.y = Math.min(projected.y, vector4d.y);
+                vector4d.z = Math.max(projected.x, vector4d.z);
+                vector4d.w = Math.max(projected.y, vector4d.w);
             }
             if (vector4d == null) continue;
             float f3 = (float)vector4d.x;
             float f4 = (float)vector4d.y;
             float f5 = (float)vector4d.z;
-            class_24322 = (LivingEntity)class_12972;
-            object = class_12972.getName().getString();
-            float f6 = class_24322.getHealth();
-            float f7 = class_24322.getMaxHealth();
+            LivingEntity livingEntity = (LivingEntity)class_12972;
+            String object = class_12972.getName().getString();
+            float f6 = livingEntity.getHealth();
+            float f7 = livingEntity.getMaxHealth();
             float f8 = zk.a.player.distanceTo(class_12972);
             float f9 = 1.0f;
             if (this.h.b()) {
@@ -219,9 +219,9 @@ extends zb {
             za2.a().getMatrices().translate(f21, f17);
             za2.a().getMatrices().scale(f6, f6);
             for (n = 0; n < arrayList.size(); ++n) {
-                class_13042 = (ItemStack)arrayList.get(n);
+                ItemStack itemStack = arrayList.get(n);
                 float f22 = (float)n * (f18 + f19) / f6;
-                za2.a().drawItem((ItemStack)class_13042, (int)f22, 0);
+                za2.a().drawItem(itemStack, (int)f22, 0);
             }
             za2.a().getMatrices().popMatrix();
         }

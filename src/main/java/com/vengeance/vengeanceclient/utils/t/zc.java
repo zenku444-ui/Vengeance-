@@ -77,7 +77,7 @@ public final class zc {
     public static boolean a(ItemStack class_17992, World class_19372, RegistryKey<Enchantment> class_53212) {
         Object object;
         Object object2;
-        Object object3;
+        Registry<Enchantment> object3;
         if (class_17992 == null || class_19372 == null || class_53212 == null) {
             return false;
         }
@@ -88,7 +88,7 @@ public final class zc {
         try {
             object3 = class_19372.getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT);
             object2 = (Enchantment)object3.get(class_53212);
-            if (object2 != null && (object = object3.getEntry(object2)) != null) {
+            if (object2 != null && (object = object3.getEntry((Enchantment)object2)) != null) {
                 return class_93042.getLevel((RegistryEntry)object) > 0;
             }
         }
@@ -96,12 +96,12 @@ public final class zc {
             // empty catch block
         }
         try {
-            object3 = class_19372.getRegistryManager().getClass().getMethod("get", RegistryKey.class).invoke((Object)class_19372.getRegistryManager(), RegistryKeys.ENCHANTMENT);
-            object2 = object3.getClass().getMethod("getOrEmpty", RegistryKey.class).invoke(object3, class_53212);
+            Object reflectedRegistry = class_19372.getRegistryManager().getClass().getMethod("get", RegistryKey.class).invoke((Object)class_19372.getRegistryManager(), RegistryKeys.ENCHANTMENT);
+            object2 = reflectedRegistry.getClass().getMethod("getOrEmpty", RegistryKey.class).invoke(reflectedRegistry, class_53212);
             object = (Optional)object2;
             if (((Optional)object).isPresent()) {
                 Object t = ((Optional)object).get();
-                Object object4 = object3.getClass().getMethod("getEntry", Object.class).invoke(object3, t);
+                Object object4 = reflectedRegistry.getClass().getMethod("getEntry", Object.class).invoke(reflectedRegistry, t);
                 return zc.a(class_17992, class_19372, (RegistryEntry<Enchantment>)((RegistryEntry)object4));
             }
         }

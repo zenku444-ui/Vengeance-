@@ -3,8 +3,6 @@
  */
 package com.vengeance.vengeanceclient.utils.w.s.r;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.runtime.ObjectMethods;
 
 public record zb(float radius1, float radius2, float radius3, float radius4) {
     public static final zb a = new zb(0.0f, 0.0f, 0.0f, 0.0f);
@@ -19,28 +17,6 @@ public record zb(float radius1, float radius2, float radius3, float radius4) {
 
     public zb(float f) {
         this(f, f, f, f);
-    }
-
-    public zb(float f, float f2, float f3, float f4) {
-        this.radius1 = f;
-        this.radius2 = f2;
-        this.radius3 = f3;
-        this.radius4 = f4;
-    }
-
-    @Override
-    public final String toString() {
-        return ObjectMethods.bootstrap("toString", new MethodHandle[]{zb.class, "radius1;radius2;radius3;radius4", "radius1", "radius2", "radius3", "radius4"}, this);
-    }
-
-    @Override
-    public final int hashCode() {
-        return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zb.class, "radius1;radius2;radius3;radius4", "radius1", "radius2", "radius3", "radius4"}, this);
-    }
-
-    @Override
-    public final boolean equals(Object object) {
-        return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zb.class, "radius1;radius2;radius3;radius4", "radius1", "radius2", "radius3", "radius4"}, this, object);
     }
 
     public float a() {

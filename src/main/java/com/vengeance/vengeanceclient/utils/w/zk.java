@@ -7,8 +7,6 @@
 package com.vengeance.vengeanceclient.utils.w;
 
 import java.awt.Color;
-import java.lang.invoke.MethodHandle;
-import java.lang.runtime.ObjectMethods;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.gui.DrawContext;
@@ -203,82 +201,11 @@ public final class zk {
             return 0;
         }
 
-        public static final class zb$Mode
-        extends Enum<zb$Mode> {
-            public static final /* enum */ zb$Mode a = new zb$Mode();
-            public static final /* enum */ zb$Mode b = new zb$Mode();
-            public static final /* enum */ zb$Mode c = new zb$Mode();
-            public static final /* enum */ zb$Mode d = new zb$Mode();
-            private static final /* synthetic */ zb$Mode[] e;
+        public enum zb$Mode { a, b, c, d }
 
-            public static zb$Mode[] values() {
-                return (zb$Mode[])e.clone();
-            }
+        public enum zc$Mode { a, b, c, d, e, f }
 
-            public static zb$Mode valueOf(String string) {
-                return Enum.valueOf(zb$Mode.class, string);
-            }
-
-            private static /* synthetic */ zb$Mode[] a() {
-                return new zb$Mode[]{a, b, c, d};
-            }
-
-            static {
-                e = zb.a();
-            }
-        }
-
-        public static final class zc$Mode
-        extends Enum<zc$Mode> {
-            public static final /* enum */ zc$Mode a = new zc$Mode();
-            public static final /* enum */ zc$Mode b = new zc$Mode();
-            public static final /* enum */ zc$Mode c = new zc$Mode();
-            public static final /* enum */ zc$Mode d = new zc$Mode();
-            public static final /* enum */ zc$Mode e = new zc$Mode();
-            public static final /* enum */ zc$Mode f = new zc$Mode();
-            private static final /* synthetic */ zc$Mode[] g;
-
-            public static zc$Mode[] values() {
-                return (zc$Mode[])g.clone();
-            }
-
-            public static zc$Mode valueOf(String string) {
-                return Enum.valueOf(zc$Mode.class, string);
-            }
-
-            private static /* synthetic */ zc$Mode[] a() {
-                return new zc$Mode[]{a, b, c, d, e, f};
-            }
-
-            static {
-                g = zc.a();
-            }
-        }
-
-        public static final class za$Align
-        extends Enum<za$Align> {
-            public static final /* enum */ za$Align a = new za$Align();
-            public static final /* enum */ za$Align b = new za$Align();
-            public static final /* enum */ za$Align c = new za$Align();
-            public static final /* enum */ za$Align d = new za$Align();
-            private static final /* synthetic */ za$Align[] e;
-
-            public static za$Align[] values() {
-                return (za$Align[])e.clone();
-            }
-
-            public static za$Align valueOf(String string) {
-                return Enum.valueOf(za$Align.class, string);
-            }
-
-            private static /* synthetic */ za$Align[] a() {
-                return new za$Align[]{a, b, c, d};
-            }
-
-            static {
-                e = za.a();
-            }
-        }
+        public enum za$Align { a, b, c, d }
     }
 
     public static class zc {
@@ -497,20 +424,6 @@ public final class zk {
             this(n, n2, n, n2);
         }
 
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{zf.class, "top;right;bottom;left", "a", "b", "c", "d"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zf.class, "top;right;bottom;left", "a", "b", "c", "d"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zf.class, "top;right;bottom;left", "a", "b", "c", "d"}, this, object);
-        }
     }
 
     public record zg(int a, int b, int c, int d) {
@@ -522,54 +435,12 @@ public final class zk {
             this(n, n2, n, n2);
         }
 
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{zg.class, "top;right;bottom;left", "a", "b", "c", "d"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zg.class, "top;right;bottom;left", "a", "b", "c", "d"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zg.class, "top;right;bottom;left", "a", "b", "c", "d"}, this, object);
-        }
     }
 
     public record zj(int a, int b) {
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{zj.class, "width;height", "a", "b"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zj.class, "width;height", "a", "b"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zj.class, "width;height", "a", "b"}, this, object);
-        }
     }
 
     public record zh(int a, int b) {
-        @Override
-        public final String toString() {
-            return ObjectMethods.bootstrap("toString", new MethodHandle[]{zh.class, "x;y", "a", "b"}, this);
-        }
-
-        @Override
-        public final int hashCode() {
-            return (int)ObjectMethods.bootstrap("hashCode", new MethodHandle[]{zh.class, "x;y", "a", "b"}, this);
-        }
-
-        @Override
-        public final boolean equals(Object object) {
-            return (boolean)ObjectMethods.bootstrap("equals", new MethodHandle[]{zh.class, "x;y", "a", "b"}, this, object);
-        }
     }
 
     public static class za {
@@ -612,53 +483,9 @@ public final class zk {
             });
         }
 
-        public static final class za$Horizontal
-        extends Enum<za$Horizontal> {
-            public static final /* enum */ za$Horizontal a = new za$Horizontal();
-            public static final /* enum */ za$Horizontal b = new za$Horizontal();
-            public static final /* enum */ za$Horizontal c = new za$Horizontal();
-            private static final /* synthetic */ za$Horizontal[] d;
+        public enum za$Horizontal { a, b, c }
 
-            public static za$Horizontal[] values() {
-                return (za$Horizontal[])d.clone();
-            }
-
-            public static za$Horizontal valueOf(String string) {
-                return Enum.valueOf(za$Horizontal.class, string);
-            }
-
-            private static /* synthetic */ za$Horizontal[] a() {
-                return new za$Horizontal[]{a, b, c};
-            }
-
-            static {
-                d = za.a();
-            }
-        }
-
-        public static final class zb$Vertical
-        extends Enum<zb$Vertical> {
-            public static final /* enum */ zb$Vertical a = new zb$Vertical();
-            public static final /* enum */ zb$Vertical b = new zb$Vertical();
-            public static final /* enum */ zb$Vertical c = new zb$Vertical();
-            private static final /* synthetic */ zb$Vertical[] d;
-
-            public static zb$Vertical[] values() {
-                return (zb$Vertical[])d.clone();
-            }
-
-            public static zb$Vertical valueOf(String string) {
-                return Enum.valueOf(zb$Vertical.class, string);
-            }
-
-            private static /* synthetic */ zb$Vertical[] a() {
-                return new zb$Vertical[]{a, b, c};
-            }
-
-            static {
-                d = zb.a();
-            }
-        }
+        public enum zb$Vertical { a, b, c }
     }
 }
 

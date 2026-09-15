@@ -69,8 +69,8 @@ extends zb {
             return;
         }
         BlockHitResult class_39652 = (BlockHitResult)ItemStackParticleEffect;
-        ItemStackParticleEffect = this.a(class_39652);
-        if (ItemStackParticleEffect == null) {
+        BlockPos blockPos = this.a(class_39652);
+        if (blockPos == null) {
             return;
         }
         if (this.o()) {

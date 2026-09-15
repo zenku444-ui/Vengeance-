@@ -150,7 +150,7 @@ extends com.vengeance.vengeanceclient.r.zb {
             this.d = za2.h.a().contains("Right");
             this.e = za2.k.b();
             this.f = zd.n();
-            this.g = new Color(g.getRed(), g.getGreen(), g.getBlue(), (int)za2.j.f());
+            this.g = new Color(this.f.getRed(), this.f.getGreen(), this.f.getBlue(), (int)za2.j.f());
             this.h = 5.0f;
         }
     }
