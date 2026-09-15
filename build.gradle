@@ -1,0 +1,81 @@
+plugins {
+    id "fabric-loom" version "${loom_version}"
+    id "maven-publish"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven { url = "https://maven.fabricmc.net/" }
+    mavenCentral()
+}
+
+loom {
+    accessWidenerPath = file("../reconstructed/src/main/resources/vengeance-client.accesswidener")
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+
+    // Loom compiles against Yarn's named namespace. The decompiled
+    // intermediary sources are remapped into that namespace below.
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    // These libraries are embedded by fabric.mod.json and are also needed
+    // on the compile classpath for the reconstructed sources.
+    compileOnly files(
+        "../reconstructed/src/main/resources/META-INF/jars/lombok-1.18.30.jar",
+        "../reconstructed/src/main/resources/META-INF/jars/norbit-1.2.0.jar",
+        "../reconstructed/src/main/resources/META-INF/jars/orbit-0.2.4.jar"
+    )
+}
+
+sourceSets {
+    main {
+        java.srcDirs = ["../reconstructed/src/main/java"]
+        resources.srcDirs = ["../reconstructed/src/main/resources"]
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(java_version as int)
+    }
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = java_version as int
+}
+
+tasks.named("jar").configure {
+    destinationDirectory = file("../builds")
+}
+
+tasks.named("remapJar").configure {
+    destinationDirectory = file("../builds")
+}
+
+tasks.named("sourcesJar").configure {
+    destinationDirectory = file("../builds")
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        // Publishing is intentionally not configured for this reconstruction.
+    }
+}
